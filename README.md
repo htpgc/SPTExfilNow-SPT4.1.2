@@ -87,4 +87,4 @@ The original author replied that the adaptation may be used and published as lon
 
 The original SPTExfilNow repository is licensed under **GNU Affero General Public License v3.0 (AGPL-3.0)**.
 
-This modified version continues to be distributed under **AGPL-3.0**. See [LICENSE](LICENSE) for the complete license text.
+This modified version continues to be distributed under **AGPL-3.0**. See [LICENSE](LICENSE) for the license notice and links to the complete AGPL-3.0 text. The downloadable release archive also includes the complete license text.
