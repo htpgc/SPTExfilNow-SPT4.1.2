@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <AssemblyName>SPTExfilNow</AssemblyName>
+    <RootNamespace>SPTExfilNow</RootNamespace>
+  </PropertyGroup>
+
+  <!-- Set SPTPath to your SPT 4.1.2 root folder, e.g. D:\\SPT -->
+  <PropertyGroup>
+    <SPTPath Condition="'$(SPTPath)' == ''">$(SPT_PATH)</SPTPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(SPTPath)\EscapeFromTarkov_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="BepInEx">
+      <HintPath>$(SPTPath)\BepInEx\core\BepInEx.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="spt-reflection">
+      <HintPath>$(SPTPath)\BepInEx\plugins\spt\spt-reflection.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Comfort">
+      <HintPath>$(SPTPath)\EscapeFromTarkov_Data\Managed\Comfort.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(SPTPath)\EscapeFromTarkov_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(SPTPath)\EscapeFromTarkov_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="CheckSPTPath" BeforeTargets="ResolveReferences" Condition="!Exists('$(SPTPath)\EscapeFromTarkov_Data\Managed\Assembly-CSharp.dll')">
+    <Error Text="SPTPath is not set or invalid. Build with: dotnet build -c Release -p:SPTPath=&quot;D:\Your\SPT&quot;" />
+  </Target>
+</Project>
